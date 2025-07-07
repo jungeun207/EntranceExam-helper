@@ -1,1 +1,1 @@
-web: gunicorn admission_info.wsgi
+web: gunicorn admission_info.wsgi --log-file -
