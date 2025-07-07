@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}원주여고 입시라라{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 100px;">
+    <!-- 헤더 섹션 -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+            <h1 class="display-4 fw-bold mb-4" style="color: #A12B7D">
+                <i class="fas fa-graduation-cap me-3" style="color: #A12B7D"></i>원주여고 입시라라
+            </h1>
+            <p class="lead text-white mb-4">
+                
+            </p>
+        </div>
+    </div>
+
+    <!-- 메인 기능 카드 -->
+    <div class="row g-4 mb-5">
+        <div class="col-lg-4 col-md-6">
+            <div class="card feature-card text-center p-4">
+                <div class="card-body">
+                    <div class="feature-icon text-primary">
+                         <i class="fas fa-book-open" style="color: #A12B7D";></i>
+                    </div>
+                    <h4 class="card-title mb-3">첫번째 레슨</h4>
+                    <p class="card-text text-muted mb-4">
+                        입시 용어 마스터하기
+                        <br>똑부러진 입시 TALK TALK!
+                    </p>
+                    <a href="{% url 'terms:list' %}" class="btn btn-custom">
+                        <i class="fas fa-search me-2"></i>입시 용어 찾아보기
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card feature-card text-center p-4">
+                <div class="card-body">
+                    <div class="feature-icon text-success">
+                        <i class="fas fa-calculator" style="color: #A12B7D"></i>
+                    </div>
+                    <h4 class="card-title mb-3">두번째 레슨</h4>
+                    <p class="card-text text-muted mb-4">
+                        현실 직시하기
+                        <br>내 수준을 아는 게 중요한 법!
+                    </p>
+                    <a href="{% url 'calculator:index' %}" class="btn btn-custom">
+                        <i class="fas fa-calculator me-2"></i>내신 점수 계산하기
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card feature-card text-center p-4">
+                <div class="card-body">
+                    <div class="feature-icon text-warning">
+                        <i class="fas fa-university" style="color: #A12B7D"></i>
+                    </div>
+                    <h4 class="card-title mb-3">세번째 레슨</h4>
+                    <p class="card-text text-muted mb-4">
+                        입시 요강 · 전형 정보 확인하기
+                        <br>꿈을 꾸는 건 여자아이의 기본 소양!
+                    </p>
+                    <a href="{% url 'universities:list' %}" class="btn btn-custom">
+                        <i class="fas fa-list me-2"></i>대학 정보 보기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 피드백 섹션 -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-10">
+            <div class="card" style="background: linear-gradient(135deg, #A12B7D 0%, #8B1A5C 100%); border: none;">
+                <div class="card-body text-center p-5">
+                    <h3 class="text-white fw-bold mb-3">
+                        <i class="fas fa-comments me-3"></i>궁금한 것이 있으신가요?
+                    </h3>
+                    <p class="text-white mb-4 opacity-90">
+                        궁금한 입시 용어나 사이트 개선 사항이 있으시면 언제든지 말씀해주세요!<br>
+                        여러분의 소중한 의견을 기다리고 있습니다.
+                    </p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <a href="{% url 'feedback:form' %}" class="btn btn-light btn-lg me-md-2">
+                            <i class="fas fa-paper-plane me-2"></i>피드백 보내기
+                        </a>
+                        <a href="{% url 'feedback:form' %}" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-question-circle me-2"></i>질문하기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+``
+{% endblock %} 
