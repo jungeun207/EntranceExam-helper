@@ -25,7 +25,6 @@ def university_list(request):
         
         df = df.dropna(subset=[name_col, link_col])
         
-        # 지역 매핑
         region_mapping = {
             '서울': '서울',
             '경기 · 인천': '경기 · 인천',
@@ -36,7 +35,6 @@ def university_list(request):
             '제주': '제주'
         }
         
-        # 유형 매핑
         type_mapping = {
             '국립': '국 · 공립',
             '특별법국립': '국 · 공립',
@@ -45,7 +43,6 @@ def university_list(request):
             '사립': '사립'
         }
         
-        # 데이터에 매핑된 카테고리 추가
         df['region_category'] = df[region_col].map(region_mapping)
         df['type_category'] = df[type_col].map(type_mapping)
         
@@ -62,7 +59,6 @@ def university_list(request):
         if type_uni:
             filtered_df = filtered_df[filtered_df['type_category'] == type_uni]
         
-        # 지역 순서 정의
         region_order = {
             '서울': 1,
             '경기 · 인천': 2,
@@ -73,10 +69,8 @@ def university_list(request):
             '제주': 7
         }
         
-        # 지역 순서 컬럼 추가
         filtered_df['region_order'] = filtered_df['region_category'].map(region_order)
         
-        # 지역 순서 -> 학교명 ㄱㄴㄷ순으로 정렬
         filtered_df = filtered_df.sort_values(['region_order', name_col])
         
         universities = []
@@ -87,8 +81,7 @@ def university_list(request):
                 'type': row['type_category'],
                 'recruitment_link': row[link_col]
             })
-        
-        # 지역 선택 옵션
+
         regions = [
             ('서울', '서울'),
             ('경기 · 인천', '경기 · 인천'),
@@ -99,7 +92,6 @@ def university_list(request):
             ('제주', '제주'),
         ]
         
-        # 대학 유형 선택 옵션
         types = [
             ('국 · 공립', '국 · 공립'),
             ('사립', '사립'),
