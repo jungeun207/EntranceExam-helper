@@ -22,6 +22,5 @@ class FeedbackForm(forms.ModelForm):
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # 필수 필드 표시
         self.fields['subject'].required = True
         self.fields['message'].required = True
